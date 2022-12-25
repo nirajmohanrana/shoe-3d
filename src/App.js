@@ -1,11 +1,6 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
 
-import {
-  ContactShadows,
-  Environment,
-  Loader,
-  OrbitControls,
-} from "@react-three/drei";
+import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame } from "react-three-fiber";
 import { useGLTF } from "@react-three/drei";
 import { proxy, useSnapshot } from "valtio";
@@ -129,8 +124,8 @@ const App = () => {
   return (
     <>
       <Picker />
+
       <Canvas>
-        <Loader />
         <ambientLight intensity={0.5} />
         <spotLight intensity={0.3} position={[5, 20, 20]} />
         <Suspense fallback={null}>
