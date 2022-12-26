@@ -1,6 +1,11 @@
 import React, { Suspense, useEffect, useRef, useState } from "react";
 
-import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
+import {
+  ContactShadows,
+  Environment,
+  Loader,
+  OrbitControls,
+} from "@react-three/drei";
 import { Canvas, useFrame } from "react-three-fiber";
 import { useGLTF } from "@react-three/drei";
 import { proxy, useSnapshot } from "valtio";
@@ -115,16 +120,16 @@ function Picker() {
           state.items[snap.current] = color;
         }}
       />
-      <h1>{snap.current}</h1>
+      <h1 style={{ fontWeight: "bold" }}>{snap.current}</h1>
     </div>
   );
 }
 
 const App = () => {
   return (
-    <>
+    <div style={{ width: "100%", height: "100%" }}>
+      <Loader />
       <Picker />
-
       <Canvas>
         <ambientLight intensity={0.5} />
         <spotLight intensity={0.3} position={[5, 20, 20]} />
@@ -143,7 +148,7 @@ const App = () => {
         </Suspense>
         <OrbitControls />
       </Canvas>
-    </>
+    </div>
   );
 };
 
