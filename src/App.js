@@ -134,7 +134,7 @@ const App = () => {
     <div style={{ width: "100%", height: "100%" }}>
       <Loader />
       <Picker />
-      <Canvas style={{ zIndex: -1 }}>
+      <Canvas>
         <ambientLight intensity={0.5} />
         <spotLight intensity={0.3} position={[5, 20, 20]} />
         <Suspense fallback={null}>

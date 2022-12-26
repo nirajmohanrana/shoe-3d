@@ -99,7 +99,6 @@ h1 {
   line-height: 0.7em;
   letter-spacing: -6px;
   color: #272731;
-  z-index: 100;
 }
 
 .picker {
@@ -108,7 +107,6 @@ h1 {
   left: 70px;
   width: 90px !important;
   height: 90px !important;
-  z-index: 99;
 }
 
 .author {
