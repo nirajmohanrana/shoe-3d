@@ -112,15 +112,19 @@ function Shoe(props) {
 function Picker() {
   const snap = useSnapshot(state);
   return (
-    <div style={{ display: snap.current ? "block" : "none" }}>
-      <HexColorPicker
-        className="picker"
-        color={snap.items[snap.current]}
-        onChange={(color) => {
-          state.items[snap.current] = color;
-        }}
-      />
-      <h1 style={{ fontWeight: "bold" }}>{snap.current}</h1>
+    <div>
+      <div style={{ display: snap.current ? "block" : "none", zIndex: 99 }}>
+        <HexColorPicker
+          className="picker"
+          color={snap.items[snap.current]}
+          onChange={(color) => {
+            state.items[snap.current] = color;
+          }}
+        />
+      </div>
+      <h1 style={{ fontWeight: "bold" }}>
+        {snap.current} <span className="author">~By Niraj</span>
+      </h1>
     </div>
   );
 }
@@ -130,7 +134,7 @@ const App = () => {
     <div style={{ width: "100%", height: "100%" }}>
       <Loader />
       <Picker />
-      <Canvas>
+      <Canvas style={{ zIndex: -1 }}>
         <ambientLight intensity={0.5} />
         <spotLight intensity={0.3} position={[5, 20, 20]} />
         <Suspense fallback={null}>
